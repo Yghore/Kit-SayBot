@@ -1,0 +1,2 @@
+token: '' # Le token du bot discord
+warnExpireTime: 2880 # Expiration en minutes, 1h = 60min, 12h = 720min, 24h = 1440min, 48h = 2880min
