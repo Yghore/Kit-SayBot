@@ -1,6 +1,6 @@
 package fr.yghore.Data;
 
-import fr.yghore.dyglib.Configurable;
+import fr.yghore.dyglib.Configuration.Configurable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +15,8 @@ public class ConfigData extends Configurable
     private long warnExpireTime;
 
     private long guildId;
+
+    private String usersFolder;
 
     // guildId
 
@@ -60,4 +62,11 @@ public class ConfigData extends Configurable
         this.token = token;
     }
 
+    public void setUsersFolder(String usersFolder) {
+        this.usersFolder = usersFolder;
+    }
+
+    public String getUsersFolder() {
+        return this.usersFolder;
+    }
 }

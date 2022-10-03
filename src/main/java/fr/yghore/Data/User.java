@@ -1,5 +1,6 @@
 package fr.yghore.Data;
 
+import fr.yghore.dyglib.Data.Salvageable;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
@@ -7,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class User implements Serializable
+public class User extends Salvageable
 {
 
     private String memberId;

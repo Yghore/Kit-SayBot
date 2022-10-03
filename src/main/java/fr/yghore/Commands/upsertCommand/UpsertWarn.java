@@ -15,7 +15,7 @@ public class UpsertWarn extends UCommand {
                 .setDefaultPermissions(DefaultMemberPermissions.DISABLED)
                 .setGuildOnly(true)
                 .addOption(OptionType.STRING, "action", "Actions à effectuer", true)
-                .addOption(OptionType.USER, "member", "Membre", true)
+                .addOption(OptionType.USER, "username", "Membre", true)
                 .addOption(OptionType.STRING, "description", "descriptions en cas d'ajout d'un warn", false)
                 .queue();
     }
