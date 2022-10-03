@@ -15,4 +15,6 @@ public class Const
 
     public static final MessageEmbed EMBED_NOT_FOUND = new EmbedBuilder().setAuthor("Introuvable").setDescription("Ce profil est introuvable !").setColor(Color.RED).build();
 
+    public static final MessageEmbed EMBED_MISSING_OPTION = new EmbedBuilder().setAuthor("Option manquante").setDescription("Il manque une option !").setColor(Color.RED).build();
+
 }

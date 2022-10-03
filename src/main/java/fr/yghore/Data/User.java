@@ -63,7 +63,7 @@ public class User extends Salvageable
         int active = 0;
         for(Warn w : this.warns)
         {
-            if(w.getDate().plusMinutes(ConfigData.getConfig().getWarnExpireTime()).isBefore(LocalDateTime.now()))
+            if(w.isActive())
             {
                 active++;
             }
