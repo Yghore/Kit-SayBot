@@ -1,6 +1,7 @@
 package fr.yghore;
 
 import fr.yghore.Commands.Warn;
+import fr.yghore.Commands.upsertCommand.AutoComplete;
 import fr.yghore.Commands.upsertCommand.Loader;
 import fr.yghore.Commands.upsertCommand.UpsertWarn;
 import fr.yghore.Data.ConfigData;
@@ -20,12 +21,13 @@ public class Main {
 
 
     public static Logger LOGGER;
-
+    public static Loader loader;
 
     public static void main(String[] args) throws ConfigurationException {
         Configuration config = new Configuration("config.yml", true, "KitSayBot");
         ConfigData.setConfig((ConfigData) config.loadConfig(ConfigData.class));
         if(ConfigData.getConfig() == null){LOGGER.sendError("Une erreur est survenu lors du chargement de la configuration !"); System.exit(1);}
+
 
         LOGGER = Logger.getLogger();
 
@@ -33,6 +35,10 @@ public class Main {
         LOGGER.sendDebug("WarnExpiration : " + ConfigData.getConfig().getWarnExpireTime());
         LOGGER.sendDebug("GuildId : " + ConfigData.getConfig().getGuildId());
         LOGGER.sendPrint("Initialisation....");
+
+
+
+
 
         try {
             JDA jda = JDABuilder.create(
@@ -46,12 +52,15 @@ public class Main {
                     )
                     .build().awaitReady();
 
-
             Guild guild = jda.getGuildById(ConfigData.getConfig().getGuildId());
-            new Loader(guild).
+            Loader loader = new Loader(guild).
                     addUCommand(
                             new UpsertWarn()
-                    ).loader();
+                    );
+
+            loader.loader();
+            jda.addEventListener(new AutoComplete(loader));
+
 
         }
         catch(LoginException e)

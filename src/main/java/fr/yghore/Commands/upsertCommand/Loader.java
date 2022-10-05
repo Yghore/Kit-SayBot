@@ -1,6 +1,7 @@
 package fr.yghore.Commands.upsertCommand;
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,6 +33,13 @@ public class Loader extends ArrayList<UCommand>
         this.forEach(v ->
         {
             v.load(guild);
+        });
+    }
+
+    public void loadAutoComplete(CommandAutoCompleteInteractionEvent e)
+    {
+        this.forEach(v -> {
+            v.autoComplete(e);
         });
     }
 

@@ -74,6 +74,11 @@ public class Warn extends Salvageable
         this.desc = desc;
     }
 
+    public Warn(long id)
+    {
+        this.id = id;
+    }
+
     public LocalDateTime getDateExpiration() {
         return dateExpiration;
     }
@@ -121,6 +126,8 @@ public class Warn extends Salvageable
         return this.dateExpiration.isAfter(LocalDateTime.now());
     }
 
+
+
     public MessageEmbed.Field[] toFields()
     {
         return new MessageEmbed.Field[]{
@@ -130,6 +137,15 @@ public class Warn extends Salvageable
                 new MessageEmbed.Field("Expiration", this.dateExpiration.format(Const.DTF) + " " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
                 null,
         };
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if(o == this){return true;}
+        if(!(o instanceof Warn w)){return false;}
+        return w.id == this.id;
+
     }
 
 }

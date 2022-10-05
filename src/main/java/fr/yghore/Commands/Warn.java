@@ -3,6 +3,7 @@ package fr.yghore.Commands;
 import fr.yghore.Data.Data;
 import fr.yghore.Data.User;
 import fr.yghore.Main;
+import fr.yghore.Utils.Const;
 import fr.yghore.Utils.PaginationEmbed;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -108,6 +109,33 @@ public class Warn extends ListenerAdapter
                     event.replyEmbeds(
                         embedBuilder.build()
                     ).queue();
+                    break;
+                case "remove":
+                    long idRemove = event.getOption("id").getAsLong();
+                    int index = userData.getWarns().indexOf(new fr.yghore.Data.Warn(idRemove));
+                    if(index == -1){ event.replyEmbeds(EMBED_NOT_FOUND).queue();return;}
+                    warn = userData.getWarns().get(index);
+                    userData.getWarns().remove(new fr.yghore.Data.Warn(idRemove));
+                    embedBuilder = new EmbedBuilder()
+                            .setColor(Color.GREEN)
+                            .setTitle("Vous venez de supprimé l'avertissement :");
+
+                    for (MessageEmbed.Field field : warn.toFields()) {
+                        embedBuilder.addField(field);
+                    }
+
+                    event.replyEmbeds(
+                            embedBuilder.build()
+                    ).queue();
+                    break;
+
+                case "modify":
+                    long idModify = event.getOption("id").getAsLong();
+                    String expiration = event.getOption("expiration").getAsString();
+                    index = userData.getWarns().indexOf(new fr.yghore.Data.Warn(idModify));
+                    if(index == -1){ event.replyEmbeds(EMBED_NOT_FOUND).queue();return;}
+                    warn = userData.getWarns().get(index);
+                    warn.setDateExpiration(warn.getDateExpiration().plus(TimeFormat.parse(expiration)));
                     break;
 
             }

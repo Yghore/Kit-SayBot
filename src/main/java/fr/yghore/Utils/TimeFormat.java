@@ -20,7 +20,8 @@ public class TimeFormat
         int seconds = 0;
         for (String s : time.split("(?<=[A-z])")) {
             int parsedS = Integer.parseInt(s.replaceAll("[A-z]", ""));
-            if(s.endsWith("d")){ days = parsedS;}
+            if(s.endsWith("mo")){ days += parsedS;}
+            if(s.endsWith("d")){ days += parsedS;}
             if(s.endsWith("h")){ hours = parsedS;}
             if(s.endsWith("m")){ minutes = parsedS;}
             if(s.endsWith("s")){ seconds = parsedS;}
