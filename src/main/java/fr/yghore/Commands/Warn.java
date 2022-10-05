@@ -18,6 +18,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -44,16 +46,28 @@ public class Warn extends ListenerAdapter
             {
                 case "view":
                     int page = (event.getOption("page") == null) ? 1 : event.getOption("page").getAsInt();
+                    int resultPerPage = (event.getOption("resultperpage") == null) ? 4 : event.getOption("resultperpage").getAsInt() * 4;
+                    fr.yghore.Data.Warn.warnFilter filter = (event.getOption("filter") == null) ? null : fr.yghore.Data.Warn.warnFilter.type(event.getOption("filter").getAsString());
                     EmbedBuilder eb = new EmbedBuilder()
                             .setAuthor(event.getMember().getEffectiveName())
                             .setThumbnail(member.getEffectiveAvatarUrl())
-                            .setTitle("Historique du membre : ")
+                            .setTitle("Historique du membre (" + ((filter == null) ? "Aucun Filtre" : filter.label) + ")")
                             .setDescription("⚠️ Nombre d'avertissement : " + userData.getAllWarn()
                             + "\n" + "🛑 Nombre d'avertissement en cours : " + userData.getActiveWarn());
                             eb.addBlankField(false);
 
-                    if(userData.getWarns().size() == 0){eb.addField(new MessageEmbed.Field("", "Aucun historique", false));}
-                    for(fr.yghore.Data.Warn w : userData.getWarns())
+                    if(userData.getWarns().size() == 0){
+                        eb.addField(new MessageEmbed.Field("", "Aucun historique", false));
+                        event.replyEmbeds(eb.build()).queue();
+                        return;
+                    }
+
+
+                    ArrayList<fr.yghore.Data.Warn> warns = userData.getWarns();
+                    if(filter == fr.yghore.Data.Warn.warnFilter.NEWEST){ warns = userData.getOldestWarns(5);}
+                    if(filter == fr.yghore.Data.Warn.warnFilter.ACTIF){ warns = userData.getActifWarns();}
+                    if(filter == fr.yghore.Data.Warn.warnFilter.INACTIF){ warns = userData.getInactifWarns();}
+                    for(fr.yghore.Data.Warn w : warns)
                     {
                         for (MessageEmbed.Field field : w.toFields()) {
                             eb.addField(field);
@@ -63,7 +77,7 @@ public class Warn extends ListenerAdapter
                             }
                         }
                     }
-                    PaginationEmbed pe = new PaginationEmbed(eb, 4);
+                    PaginationEmbed pe = new PaginationEmbed(eb, resultPerPage);
 
                     event.replyEmbeds(pe.getPaginateEmbed(page)).queue();
                     break;
@@ -71,17 +85,28 @@ public class Warn extends ListenerAdapter
                 case "add":
                     Duration durationWarn = TimeFormat.parse(event.getOption("date").getAsString());
                     String desc = event.getOption("description").getAsString();
+                    String type = Objects.requireNonNull(event.getOption("type")).getAsString();
+
+
+                    fr.yghore.Data.Warn.warnType typeWarn = typeWarn = fr.yghore.Data.Warn.warnType.type(type);
+
                     if(durationWarn == null || desc.equals("")){event.replyEmbeds(EMBED_MISSING_OPTION).setEphemeral(true).queue();return;}
 
                     LocalDateTime now = LocalDateTime.now();
                     long id =  + Long.parseLong("" + (member.getIdLong() % 10000) + now.getMonthValue() + now.getDayOfMonth() + now.getYear() + userData.getAllWarn());
                     LocalDateTime date = now.plus(durationWarn);
-                    userData.addWarn(new fr.yghore.Data.Warn(id, date, fr.yghore.Data.Warn.warnType.INSULTS, desc));
+                    fr.yghore.Data.Warn warn = new fr.yghore.Data.Warn(id, date, typeWarn, desc);
+                    userData.addWarn(warn);
+                    EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Ajout de l'avertissement")
+                            .setColor(Color.GREEN)
+                            .setDescription("Vous avez ajouté l'avertissement suivant : ");
+
+                    for (MessageEmbed.Field field : warn.toFields()) {
+                        embedBuilder.addField(field);
+                    }
+
                     event.replyEmbeds(
-                            new EmbedBuilder().setAuthor("Ajout de l'avertissement")
-                                    .setColor(Color.GREEN)
-                                    .setDescription("Vous avez bien ajouté l'avertissement !")
-                                    .build()
+                        embedBuilder.build()
                     ).queue();
                     break;
 

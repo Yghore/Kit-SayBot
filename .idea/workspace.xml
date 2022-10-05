@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" afterDir="false" />
+    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1664820936934" duration="9405000" />
       <workItem from="1664864696299" duration="5843000" />
       <workItem from="1664877210695" duration="223000" />
-      <workItem from="1664951128526" duration="2343000" />
+      <workItem from="1664951128526" duration="7964000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
       <created>1664401332979</created>
@@ -137,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664834683063</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement">
+      <created>1664953678631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664953678631</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +166,8 @@
     <MESSAGE value="Ajout d'une classe UCommand qui permet de structurer l'ajout des UpsertCommands&#10;Ajout d'une classe Loader qui permet de lister et loader chaque UpsertCommands&#10;&#10;Ajout d'un UpsertCommands pour la commande warn" />
     <MESSAGE value="Changement du système de data (serialisation) &#10;Utilisation d'un système de JSON" />
     <MESSAGE value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
+    <MESSAGE value="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

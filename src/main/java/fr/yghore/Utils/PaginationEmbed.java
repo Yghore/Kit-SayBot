@@ -49,19 +49,14 @@ public class PaginationEmbed
         eb.clearFields();
 
 
-        Logger.getLogger().sendDebug("ActualField : " + actualField);
-        Logger.getLogger().sendDebug("EndField : " + endField);
-
         if(actualField >= fields.size()){return null;}
 
 
         for (int i = actualField; i <= endField; i++)
         {
-            Logger.getLogger().sendDebug("Field :" + i + " | " + fields.get(i).getName());
             eb.addField(fields.get(i));
         }
 
-        Logger.getLogger().sendDebug("---------");
 
         eb.setFooter("" + page + "/" + totalPage);
 

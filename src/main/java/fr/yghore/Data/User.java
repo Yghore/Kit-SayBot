@@ -7,6 +7,9 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class User extends Salvageable
 {
@@ -51,6 +54,27 @@ public class User extends Salvageable
     public ArrayList<Warn> getWarns() {
         return warns;
     }
+
+    public ArrayList<Warn> getOldestWarns(int i) {
+        if(i > this.warns.size()){i = 0;}
+        i = this.warns.size() - i;
+        ArrayList<Warn> warn = new ArrayList<>();
+        for (int j = this.warns.size() - 1; j >= i; j--) {
+            warn.add(this.warns.get(j));
+        }
+        return warn;
+    }
+
+    public ArrayList<Warn> getInactifWarns()
+    {
+        return (ArrayList<Warn>) this.warns.stream().filter(warn -> !warn.isActive()).collect(Collectors.toList());
+    }
+
+    public ArrayList<Warn> getActifWarns()
+    {
+        return (ArrayList<Warn>) this.warns.stream().filter(Warn::isActive).collect(Collectors.toList());
+    }
+
 
 
     public void addWarn(Warn warn)
