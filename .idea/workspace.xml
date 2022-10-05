@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement">
+    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/AutoComplete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +111,7 @@
       <workItem from="1664820936934" duration="9405000" />
       <workItem from="1664864696299" duration="5843000" />
       <workItem from="1664877210695" duration="223000" />
-      <workItem from="1664951128526" duration="7964000" />
+      <workItem from="1664951128526" duration="14871000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
       <created>1664401332979</created>
@@ -144,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664953678631</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType">
+      <created>1664962233108</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664962233108</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +178,8 @@
     <MESSAGE value="Changement du système de data (serialisation) &#10;Utilisation d'un système de JSON" />
     <MESSAGE value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
     <MESSAGE value="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement" />
+    <MESSAGE value="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
