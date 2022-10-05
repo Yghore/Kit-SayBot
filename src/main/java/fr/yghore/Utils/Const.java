@@ -17,4 +17,7 @@ public class Const
 
     public static final MessageEmbed EMBED_MISSING_OPTION = new EmbedBuilder().setAuthor("Option manquante").setDescription("Il manque une option !").setColor(Color.RED).build();
 
+    public static final MessageEmbed EMBED_MISSING_PAGE = new EmbedBuilder().setAuthor("Erreur").setDescription("La page n'existe pas !").setColor(Color.RED).build();
+
+
 }

@@ -3,6 +3,7 @@ package fr.yghore.Commands;
 import fr.yghore.Data.Data;
 import fr.yghore.Data.User;
 import fr.yghore.Main;
+import fr.yghore.Utils.PaginationEmbed;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
@@ -42,20 +43,29 @@ public class Warn extends ListenerAdapter
             switch (event.getSubcommandName())
             {
                 case "view":
+                    int page = (event.getOption("page") == null) ? 1 : event.getOption("page").getAsInt();
                     EmbedBuilder eb = new EmbedBuilder()
-                            .setAuthor(event.getMember().getEffectiveName() + " - <@" + member.getId() + ">")
+                            .setAuthor(event.getMember().getEffectiveName())
                             .setThumbnail(member.getEffectiveAvatarUrl())
-                            .setTitle("Historique du membre : " + member.getEffectiveName());
+                            .setTitle("Historique du membre : ")
+                            .setDescription("⚠️ Nombre d'avertissement : " + userData.getAllWarn()
+                            + "\n" + "🛑 Nombre d'avertissement en cours : " + userData.getActiveWarn());
+                            eb.addBlankField(false);
+
                     if(userData.getWarns().size() == 0){eb.addField(new MessageEmbed.Field("", "Aucun historique", false));}
                     for(fr.yghore.Data.Warn w : userData.getWarns())
                     {
-
                         for (MessageEmbed.Field field : w.toFields()) {
                             eb.addField(field);
+                            if(field == null){
+                                eb.addBlankField(false);
+
+                            }
                         }
-                        eb.addBlankField(false);
                     }
-                    event.replyEmbeds(eb.build()).queue();
+                    PaginationEmbed pe = new PaginationEmbed(eb, 4);
+
+                    event.replyEmbeds(pe.getPaginateEmbed(page)).queue();
                     break;
 
                 case "add":

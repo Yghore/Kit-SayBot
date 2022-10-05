@@ -19,7 +19,8 @@ public class UpsertWarn extends UCommand {
                 .addOption(OptionType.STRING, "date", "Date d'expiration (FORMAT : 00d00h00m00s d = JOUR, h = HEURE, m = MINUTE, S = SECONDE", true)
                 .addOption(OptionType.STRING, "description", "descriptions en cas d'ajout d'un warn", true);
         SubcommandData view = new SubcommandData("view", "Permet de voir l'historique des avertissements")
-                .addOption(OptionType.USER, "username", "Utilisateur concerné", true);
+                .addOption(OptionType.USER, "username", "Utilisateur concerné", true)
+                .addOption(OptionType.INTEGER, "page", "Page des warnings", false);
         guild.upsertCommand("warn", "Commande administratif pour la gestion des avertissements")
                 .addSubcommands(add, view)
                 .setDefaultPermissions(DefaultMemberPermissions.DISABLED)

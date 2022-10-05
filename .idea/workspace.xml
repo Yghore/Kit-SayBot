@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/ConfigData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/ConfigData.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/Data.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/config.yml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -45,22 +48,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/yhgor/Documents/Projets/Discord/DygLib/out/artifacts/DygLib_jar/DygLib.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.43793103"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yhgor/Documents/Projets/Discord/DygLib/out/artifacts/DygLib_jar/DygLib.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.43793103&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.Bot">
+    <configuration name="Bot" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.yghore.Main" />
+      <module name="KitSayBot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testMain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testMain" />
+      <module name="KitSayBot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,8 +88,56 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664396029470</updated>
-      <workItem from="1664396031720" duration="5155000" />
+      <workItem from="1664396031720" duration="6330000" />
+      <workItem from="1664484529861" duration="2363000" />
+      <workItem from="1664521430951" duration="86000" />
+      <workItem from="1664522934704" duration="20000" />
+      <workItem from="1664531009274" duration="244000" />
+      <workItem from="1664534947656" duration="2724000" />
+      <workItem from="1664538038876" duration="1223000" />
+      <workItem from="1664539812542" duration="173000" />
+      <workItem from="1664540070431" duration="71000" />
+      <workItem from="1664540298316" duration="814000" />
+      <workItem from="1664542297321" duration="1018000" />
+      <workItem from="1664543541203" duration="309000" />
+      <workItem from="1664544298157" duration="147000" />
+      <workItem from="1664544800787" duration="131000" />
+      <workItem from="1664545207522" duration="36000" />
+      <workItem from="1664545306485" duration="195000" />
+      <workItem from="1664820936934" duration="9405000" />
+      <workItem from="1664864696299" duration="5843000" />
+      <workItem from="1664877210695" duration="223000" />
+      <workItem from="1664951128526" duration="2343000" />
     </task>
+    <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
+      <created>1664401332979</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664401332979</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Ajout d'une classe UCommand qui permet de structurer l'ajout des UpsertCommands&#10;Ajout d'une classe Loader qui permet de lister et loader chaque UpsertCommands&#10;&#10;Ajout d'un UpsertCommands pour la commande warn">
+      <created>1664485918256</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664485918256</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changement du système de data (serialisation) &#10;Utilisation d'un système de JSON">
+      <created>1664821052921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664821052921</updated>
+    </task>
+    <task id="LOCAL-00004" summary="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings">
+      <created>1664834683063</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664834683063</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,5 +153,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs" />
+    <MESSAGE value="Ajout d'une classe UCommand qui permet de structurer l'ajout des UpsertCommands&#10;Ajout d'une classe Loader qui permet de lister et loader chaque UpsertCommands&#10;&#10;Ajout d'un UpsertCommands pour la commande warn" />
+    <MESSAGE value="Changement du système de data (serialisation) &#10;Utilisation d'un système de JSON" />
+    <MESSAGE value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

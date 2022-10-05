@@ -91,11 +91,11 @@ public class Warn extends Salvageable
     public MessageEmbed.Field[] toFields()
     {
         return new MessageEmbed.Field[]{
-                new MessageEmbed.Field("ID : ", String.valueOf(this.id), true),
-                new MessageEmbed.Field("Type :", this.type.label, true),
+                new MessageEmbed.Field("**⚠️ Avertissement** (``" + String.valueOf(this.id)  + "``) __" + this.type.label + "__", "", false),
                 new MessageEmbed.Field("Description : ", this.desc, false),
-                new MessageEmbed.Field("Expiration :", this.dateExpiration.format(Const.DTF) + " " + ((this.isActive()) ? Emoji.fromFormatted(":close").asUnicode() :  Emoji.fromFormatted(":open:").asUnicode()), true),
-                new MessageEmbed.Field("Création", this.dateCreated.format(Const.DTF), true)
+                new MessageEmbed.Field("Expiration :", this.dateExpiration.format(Const.DTF) + " " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
+                new MessageEmbed.Field("Création", this.dateCreated.format(Const.DTF), true),
+                null,
         };
     }
 
