@@ -4,14 +4,13 @@ import fr.yghore.Commands.Warn;
 import fr.yghore.Commands.upsertCommand.AutoComplete;
 import fr.yghore.Commands.upsertCommand.Loader;
 import fr.yghore.Commands.upsertCommand.UpsertWarn;
-import fr.yghore.Data.ConfigData;
+import fr.yghore.Models.ConfigData;
 import fr.yghore.dyglib.Configuration.Configuration;
 import fr.yghore.dyglib.Configuration.ConfigurationException;
 import fr.yghore.dyglib.Logger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;

@@ -1,14 +1,9 @@
-package fr.yghore.Data;
+package fr.yghore.Models;
 
 import fr.yghore.dyglib.Data.Salvageable;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class User extends Salvageable

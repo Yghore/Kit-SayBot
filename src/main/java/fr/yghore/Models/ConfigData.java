@@ -1,9 +1,6 @@
-package fr.yghore.Data;
+package fr.yghore.Models;
 
 import fr.yghore.dyglib.Configuration.Configurable;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class ConfigData extends Configurable
 {
@@ -17,6 +14,20 @@ public class ConfigData extends Configurable
     private long guildId;
 
     private String usersFolder;
+
+
+    private String dataFolder;
+
+    // dataFolder
+
+    public String getDataFolder() {
+        return dataFolder;
+    }
+
+    public void setDataFolder(String dataFolder) {
+        this.dataFolder = dataFolder;
+    }
+
 
     // guildId
 

@@ -1,13 +1,10 @@
-package fr.yghore.Data;
+package fr.yghore.Models;
 
 import fr.yghore.Utils.Const;
 import fr.yghore.dyglib.Data.Salvageable;
 import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.emoji.Emoji;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Warn extends Salvageable
 {
@@ -56,6 +53,9 @@ public class Warn extends Salvageable
 
     private long id;
 
+
+    private long moderator;
+
     private LocalDateTime dateExpiration;
     private LocalDateTime dateCreated;
 
@@ -63,12 +63,14 @@ public class Warn extends Salvageable
 
     private String desc;
 
-    public Warn(long id, LocalDateTime dateExpire, warnType type, String desc)
+    public Warn(long id, LocalDateTime dateExpire, warnType type, String desc, long moderator)
     {
         this.id = id;
 
         this.dateExpiration = dateExpire;
         this.dateCreated = LocalDateTime.now();
+
+        this.moderator = moderator;
 
         this.type = type;
         this.desc = desc;
@@ -121,6 +123,15 @@ public class Warn extends Salvageable
         this.desc = desc;
     }
 
+
+    public long getModerator() {
+        return moderator;
+    }
+
+    public void setModerator(long moderator) {
+        this.moderator = moderator;
+    }
+
     public boolean isActive()
     {
         return this.dateExpiration.isAfter(LocalDateTime.now());
@@ -132,6 +143,7 @@ public class Warn extends Salvageable
     {
         return new MessageEmbed.Field[]{
                 new MessageEmbed.Field("**⚠️ Avertissement** (``" + this.id + "``) __" + this.type.label + "__", "", false),
+                new MessageEmbed.Field("Modérateur : ", "<@" + this.moderator + ">", true),
                 new MessageEmbed.Field("Description", this.desc, false),
                 new MessageEmbed.Field("Création", this.dateCreated.format(Const.DTF), true),
                 new MessageEmbed.Field("Expiration", this.dateExpiration.format(Const.DTF) + " " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
