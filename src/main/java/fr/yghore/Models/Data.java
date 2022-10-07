@@ -1,4 +1,4 @@
-package fr.yghore.Data;
+package fr.yghore.Models;
 
 import fr.yghore.dyglib.Data.Json;
 
