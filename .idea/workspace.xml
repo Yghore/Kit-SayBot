@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Joke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +124,7 @@
       <workItem from="1664951128526" duration="15090000" />
       <workItem from="1664977840189" duration="1368000" />
       <workItem from="1665045006761" duration="3082000" />
-      <workItem from="1665143892161" duration="555000" />
+      <workItem from="1665143892161" duration="735000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
       <created>1664401332979</created>
@@ -198,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665144304237</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)">
+      <created>1665144458206</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665144458206</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
