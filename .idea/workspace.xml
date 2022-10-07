@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/AutoComplete.java" afterDir="false" />
+    <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Joke.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Data/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +23,34 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="getter_data_system1" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertWarn.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/ConfigData.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/Data.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/User.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Data/Warn.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Models/ConfigData.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Models/Data.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Models/User.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Models/Warn.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/fr/yghore/Utils/PaginationEmbed.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/config.yml" root0="FORCE_HIGHLIGHTING" />
@@ -68,7 +80,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.43793103&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Bot">
+  <component name="RunManager" selected="Application.testMain">
     <configuration name="Bot" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="fr.yghore.Main" />
       <module name="KitSayBot" />
@@ -111,7 +123,10 @@
       <workItem from="1664820936934" duration="9405000" />
       <workItem from="1664864696299" duration="5843000" />
       <workItem from="1664877210695" duration="223000" />
-      <workItem from="1664951128526" duration="14871000" />
+      <workItem from="1664951128526" duration="15090000" />
+      <workItem from="1664977840189" duration="1368000" />
+      <workItem from="1665045006761" duration="3082000" />
+      <workItem from="1665143892161" duration="555000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
       <created>1664401332979</created>
@@ -155,7 +170,35 @@
       <option name="project" value="LOCAL" />
       <updated>1664962233108</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="+ Auto Completion (Pour les filtres et le type d'avertissement&#10;+ Changement du loader, pour pourvoir ajouter de l'auto completion après le chargement des méthodes WarnUpster &#10;+ Mois dans le time format">
+      <created>1664972066911</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664972066911</updated>
+    </task>
+    <task id="LOCAL-00008" summary="+ Auto Completion (Pour les filtres et le type d'avertissement&#10;+ Changement du loader, pour pourvoir ajouter de l'auto completion après le chargement des méthodes WarnUpster &#10;+ Mois dans le time format">
+      <created>1664972079714</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664972079714</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changement du package 'data' en 'Models' (plus clair à comprendre">
+      <created>1665144133449</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665144133449</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)">
+      <created>1665144304237</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665144304237</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +209,44 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="getter_data_system1" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -179,7 +259,10 @@
     <MESSAGE value="+ CONST = EMBED MISSING OPTION&#10;+ d'un fichier main de test&#10;+ Classe pour parse les formats de type &quot;0d0m0s&quot; en format Duration&#10;+ subsCommande pour les warnings&#10;~ Optimisation pour récupèrer les warnings actifs&#10;# Changement de l'affichage pour les embeds des warnings&#10;&#10;+  D'une date de création&#10;&#10;A FAIRE : Système de pagination pour les warnings" />
     <MESSAGE value="+ CONST EMBED_MISSING_PAGE&#10;+ Classe pour gérer la pagination PaginationEmbed.java&#10;+ Optimisation des sous commandes&#10;+ Utilisation de la pagination pour la vu des avertissements&#10;+ Changement de la vu de l'avertissement" />
     <MESSAGE value="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Enlève des sendDebug dans la classe PaginationEmbed.java&#10;+ Filtre et d'autre option pour l'historique d'avertissement&#10;+ Méthodes pour récupèrer les avertissements de plusieurs manières&#10;+ Support des filtres et des options dans la classe Warn.java&#10;+ Enumration warnType" />
+    <MESSAGE value="+ Auto Completion (Pour les filtres et le type d'avertissement&#10;+ Changement du loader, pour pourvoir ajouter de l'auto completion après le chargement des méthodes WarnUpster &#10;+ Mois dans le time format" />
+    <MESSAGE value="Changement du package 'data' en 'Models' (plus clair à comprendre" />
+    <MESSAGE value="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changement du package 'data' en 'Models' (plus clair à comprendre)&#10;Ajout d'une structure 'blague' (Joke)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
