@@ -1,8 +1,10 @@
 package fr.yghore;
 
+import fr.yghore.Commands.Joke;
 import fr.yghore.Commands.Warn;
 import fr.yghore.Commands.upsertCommand.AutoComplete;
 import fr.yghore.Commands.upsertCommand.Loader;
+import fr.yghore.Commands.upsertCommand.UpsertJoke;
 import fr.yghore.Commands.upsertCommand.UpsertWarn;
 import fr.yghore.Models.ConfigData;
 import fr.yghore.dyglib.Configuration.Configuration;
@@ -47,14 +49,16 @@ public class Main {
                             GatewayIntent.GUILD_MEMBERS
                     )
                     .addEventListeners(
-                            new Warn()
+                            new Warn(),
+                            new Joke()
                     )
                     .build().awaitReady();
 
             Guild guild = jda.getGuildById(ConfigData.getConfig().getGuildId());
             Loader loader = new Loader(guild).
-                    addUCommand(
-                            new UpsertWarn()
+                    addUCommands(
+                            new UpsertWarn(),
+                            new UpsertJoke()
                     );
 
             loader.loader();

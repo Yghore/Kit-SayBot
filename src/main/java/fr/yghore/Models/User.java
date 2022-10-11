@@ -105,6 +105,9 @@ public class User extends Salvageable
 
     private User setPath(String path){this.path = path; return this;}
 
+
+
+
     public static User load(String path, String memberId)
     {
         try
