@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class Loader extends ArrayList<UCommand>
@@ -22,9 +23,9 @@ public class Loader extends ArrayList<UCommand>
         return this;
     }
 
-    public Loader addUCommands(Collection<? extends UCommand> cmds)
+    public Loader addUCommands(UCommand ...cmds)
     {
-        super.addAll(cmds);
+        super.addAll(Arrays.stream(cmds).toList());
         return this;
     }
 
