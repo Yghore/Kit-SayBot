@@ -5,6 +5,8 @@ import fr.yghore.dyglib.Data.Salvageable;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 
 public class Warn extends Salvageable
 {
@@ -145,8 +147,8 @@ public class Warn extends Salvageable
                 new MessageEmbed.Field("**⚠️ Avertissement** (``" + this.id + "``) __" + this.type.label + "__", "", false),
                 new MessageEmbed.Field("Modérateur : ", "<@" + this.moderator + ">", true),
                 new MessageEmbed.Field("Description", this.desc, false),
-                new MessageEmbed.Field("Création", this.dateCreated.format(Const.DTF), true),
-                new MessageEmbed.Field("Expiration", this.dateExpiration.format(Const.DTF) + " " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
+                new MessageEmbed.Field("Création", "<t:" + this.dateCreated.atZone(ZoneId.systemDefault()).toEpochSecond() + ">", true),
+                new MessageEmbed.Field("Expiration",  "<t:" + this.dateExpiration.atZone(ZoneId.systemDefault()).toEpochSecond() + ":R> " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
                 null,
         };
     }

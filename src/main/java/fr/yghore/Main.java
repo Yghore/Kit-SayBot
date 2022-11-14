@@ -15,8 +15,6 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
-import javax.security.auth.login.LoginException;
-
 public class Main {
 
 
@@ -33,7 +31,6 @@ public class Main {
         LOGGER = Logger.getLogger();
 
         LOGGER.sendPrint("Token  : " + ConfigData.getConfig().getToken());
-        LOGGER.sendDebug("WarnExpiration : " + ConfigData.getConfig().getWarnExpireTime());
         LOGGER.sendDebug("GuildId : " + ConfigData.getConfig().getGuildId());
         LOGGER.sendPrint("Initialisation....");
 
@@ -66,11 +63,7 @@ public class Main {
 
 
         }
-        catch(LoginException e)
-        {
-            LOGGER.sendError("Une erreur est survenu lors de la connexion (token invalide)");
-            System.exit(1);
-        } catch (InterruptedException e) {
+         catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 

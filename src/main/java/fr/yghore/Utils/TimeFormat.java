@@ -13,14 +13,14 @@ public class TimeFormat
 
     public static Duration parse(String time)
     {
-        if(time.equalsIgnoreCase("FOREVER")){return ChronoUnit.FOREVER.getDuration();}
+        if(time.equalsIgnoreCase("FOREVER")){return ChronoUnit.CENTURIES.getDuration();}
         int days = 0;
         int hours = 0;
         int minutes = 0;
         int seconds = 0;
         for (String s : time.split("(?<=[A-z])")) {
             int parsedS = Integer.parseInt(s.replaceAll("[A-z]", ""));
-            if(s.endsWith("mo")){ days += parsedS;}
+            if(s.endsWith("mo")){ days += (parsedS * 30);}
             if(s.endsWith("d")){ days += parsedS;}
             if(s.endsWith("h")){ hours = parsedS;}
             if(s.endsWith("m")){ minutes = parsedS;}

@@ -9,8 +9,8 @@ public class ConfigData extends Configurable
 
     private String token;
 
-    private long warnExpireTime;
 
+    private long welcomeChannel;
     private long guildId;
 
     private String usersFolder;
@@ -29,6 +29,17 @@ public class ConfigData extends Configurable
     }
 
 
+    // welcomeChannel
+
+    public long getWelcomeChannel() {
+        return welcomeChannel;
+    }
+
+    public void setWelcomeChannel(long welcomeChannel) {
+        this.welcomeChannel = welcomeChannel;
+    }
+
+
     // guildId
 
     public long getGuildId() {
@@ -37,18 +48,6 @@ public class ConfigData extends Configurable
 
     public void setGuildId(long guildId) {
         this.guildId = guildId;
-    }
-
-
-    // warnExpireTime
-
-    public long getWarnExpireTime()
-    {
-        return warnExpireTime;
-    }
-
-    public void setWarnExpireTime(long warnExpireTime) {
-        this.warnExpireTime = warnExpireTime;
     }
 
 

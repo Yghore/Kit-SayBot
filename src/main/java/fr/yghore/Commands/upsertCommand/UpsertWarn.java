@@ -23,7 +23,7 @@ public class UpsertWarn extends UCommand {
 
         SubcommandData add = new SubcommandData("add", "Permet l'ajout d'un warn à un membre")
                 .addOption(OptionType.USER, "username", "Utilisateur concerné", true)
-                .addOption(OptionType.STRING, "date", "Date d'expiration (FORMAT : 00d00h00m00s d = JOUR, h = HEURE, m = MINUTE, S = SECONDE", true)
+                .addOption(OptionType.STRING, "date", "Date d'expiration (FORMAT : 00d00h00m00s | FOREVER)", true)
                 .addOption(OptionType.STRING, "description", "descriptions en cas d'ajout d'un warn", true)
                 .addOptions(new OptionData(OptionType.STRING, "type", "Type d'avertissement", false)
                         .addChoice("Insulte", "INSULTE")
@@ -49,7 +49,13 @@ public class UpsertWarn extends UCommand {
                 .addOption(OptionType.INTEGER, "id", "Id de l'avertissement", true);
 
         SubcommandData modify = new SubcommandData("modify", "Modifie l'expiration d'un avertissement")
+                .addOption(OptionType.USER, "username", "Utilisateur concerné", true)
                 .addOption(OptionType.INTEGER, "id", "Id de l'avertissement", true)
+                .addOptions(new OptionData(OptionType.STRING, "type", "Type de changements", true)
+                        .addChoice("Ajouter", "add")
+                        .addChoice("Enlever", "remove")
+                        .addChoice("Redefinir", "set")
+                )
                 .addOption(OptionType.STRING, "expiration", "Durée à ajouter(FORMAT : 00d00h00m00s d = JOUR, h = HEURE, m = MINUTE, S = SECONDE)", true);
 
 

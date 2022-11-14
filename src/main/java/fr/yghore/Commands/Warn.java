@@ -2,9 +2,11 @@ package fr.yghore.Commands;
 
 import fr.yghore.Models.Data;
 import fr.yghore.Models.User;
+import fr.yghore.Utils.Const;
 import fr.yghore.Utils.PaginationEmbed;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -16,6 +18,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import static fr.yghore.Utils.Const.EMBED_MISSING_OPTION;
 import static fr.yghore.Utils.Const.EMBED_NOT_FOUND;
@@ -35,12 +38,19 @@ public class Warn extends ListenerAdapter
             Member member = event.getOption("username").getAsMember();
             User userData = Data.getDataUsers(member.getId());
 
+
+
+//            if(member.hasPermission(Permission.ADMINISTRATOR) || member.isOwner()){
+//                event.replyEmbeds(Const.EMBED_FORBIDDEN_PERMISSION).queue();
+//                            return;
+//            }
+
             if(userData == null) {event.replyEmbeds(EMBED_NOT_FOUND).queue(); return;}
             switch (event.getSubcommandName())
             {
                 case "view":
                     int page = (event.getOption("page") == null) ? 1 : event.getOption("page").getAsInt();
-                    int resultPerPage = (event.getOption("resultperpage") == null) ? 4 : event.getOption("resultperpage").getAsInt() * 5;
+                    int resultPerPage = (event.getOption("resultperpage") == null) ? 5 : event.getOption("resultperpage").getAsInt() * 5;
                     fr.yghore.Models.Warn.warnFilter filter = (event.getOption("filter") == null) ? null : fr.yghore.Models.Warn.warnFilter.type(event.getOption("filter").getAsString());
                     EmbedBuilder eb = new EmbedBuilder()
                             .setAuthor(event.getMember().getEffectiveName())
@@ -79,10 +89,10 @@ public class Warn extends ListenerAdapter
                 case "add":
                     Duration durationWarn = TimeFormat.parse(event.getOption("date").getAsString());
                     String desc = event.getOption("description").getAsString();
-                    String type = Objects.requireNonNull(event.getOption("type")).getAsString();
+                    String type = (event.getOption("type") == null) ? "OTHER" : event.getOption("type").getAsString();
 
 
-                    fr.yghore.Models.Warn.warnType typeWarn = typeWarn = fr.yghore.Models.Warn.warnType.type(type);
+                    fr.yghore.Models.Warn.warnType typeWarn = fr.yghore.Models.Warn.warnType.type(type);
 
                     if(durationWarn == null || desc.equals("")){event.replyEmbeds(EMBED_MISSING_OPTION).setEphemeral(true).queue();return;}
 
@@ -91,6 +101,8 @@ public class Warn extends ListenerAdapter
                     LocalDateTime date = now.plus(durationWarn);
                     fr.yghore.Models.Warn warn = new fr.yghore.Models.Warn(id, date, typeWarn, desc, event.getMember().getIdLong());
                     userData.addWarn(warn);
+                    if(userData.getActiveWarn() == 2){ member.timeoutFor(1, TimeUnit.HOURS).queue();}
+                    if(userData.getActiveWarn() == 4){ member.timeoutFor(5, TimeUnit.HOURS).queue();}
                     EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Ajout de l'avertissement")
                             .setColor(Color.GREEN)
                             .setDescription("Vous avez ajouté l'avertissement suivant : ");
@@ -125,10 +137,26 @@ public class Warn extends ListenerAdapter
                 case "modify":
                     long idModify = event.getOption("id").getAsLong();
                     String expiration = event.getOption("expiration").getAsString();
+                    type = event.getOption("type").getAsString();
                     index = userData.getWarns().indexOf(new fr.yghore.Models.Warn(idModify));
                     if(index == -1){ event.replyEmbeds(EMBED_NOT_FOUND).queue();return;}
+
                     warn = userData.getWarns().get(index);
-                    warn.setDateExpiration(warn.getDateExpiration().plus(TimeFormat.parse(expiration)));
+                    if(type.equalsIgnoreCase("add")) {warn.setDateExpiration(warn.getDateExpiration().plus(TimeFormat.parse(expiration)));}
+                    else if(type.equalsIgnoreCase("remove")) {warn.setDateExpiration(warn.getDateExpiration().minus(TimeFormat.parse(expiration)));}
+                    else if(type.equalsIgnoreCase("set")) {warn.setDateExpiration(LocalDateTime.now().plus(TimeFormat.parse(expiration)));}
+
+                    embedBuilder = new EmbedBuilder().setAuthor("Modification de l'avertissement")
+                            .setColor(Color.GREEN)
+                            .setDescription("Vous avez modifié l'avertissement suivant : ");
+
+                    for (MessageEmbed.Field field : warn.toFields()) {
+                        embedBuilder.addField(field);
+                    }
+
+                    event.replyEmbeds(
+                            embedBuilder.build()
+                    ).queue();
                     break;
 
             }
