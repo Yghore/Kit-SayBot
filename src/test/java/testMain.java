@@ -1,9 +1,3 @@
-import fr.yghore.Models.Data;
-import fr.yghore.Models.Joke;
-import fr.yghore.Models.User;
-import fr.yghore.dyglib.Configuration.Configuration;
-import fr.yghore.dyglib.Logger;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class testMain {
 

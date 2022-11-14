@@ -4,15 +4,14 @@ import fr.yghore.dyglib.Data.Json;
 import fr.yghore.dyglib.Data.Salvageable;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class User extends Salvageable
+public class User extends Json implements Salvageable
 {
-
-
-    private transient String path;
 
     private String memberId;
     private LocalDateTime created_date;
@@ -102,29 +101,19 @@ public class User extends Salvageable
         return this.warns.size();
     }
 
-
-    private User setPath(String path){this.path = path; return this;}
-
-
-
-
-    public static User load(String path, String memberId)
-    {
-        try
-        {
-            return ((User) new Json(User.class, path).load()).setPath(path);
-
+    public static User load(String id)  {
+        try {
+            return (User) Json.load(Path.of("users", id + ".json").toString(), User.class);
         }
         catch(FileNotFoundException e)
         {
-            return new User(memberId).setPath(path);
+            return new User(id);
         }
+
     }
 
-    public void save()
-    {
-        new Json(User.class, this.path).save(this);
-    }
+
+
 
 
 

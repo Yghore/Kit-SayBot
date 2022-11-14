@@ -3,25 +3,24 @@ package fr.yghore.Models;
 import fr.yghore.dyglib.Data.Json;
 import fr.yghore.dyglib.Data.Salvageable;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
-public class Joke extends Salvageable
+public class Joke extends Json implements Salvageable
 {
 
 
-    private transient String path;
-
     public ArrayList<String> jokes;
+
+
 
     public ArrayList<String> getJokes() {
         return jokes;
     }
 
 
-    public Joke() {
+    public Joke(String path) {
+        super(path);
         this.jokes = new ArrayList<>();
     }
 
@@ -44,27 +43,8 @@ public class Joke extends Salvageable
         this.jokes = jokes;
     }
 
-    public static Joke load(String path)
-    {
-        try
-        {
-            return ((Joke) new Json(Joke.class, path).load()).setPath(path);
 
-        }
-        catch(FileNotFoundException e)
-        {
-            return new Joke().setPath(path);
-        }
-    }
+    
 
-    private Joke setPath(String path) {
-        this.path = path;
-        return this;
-    }
-
-    public void save()
-    {
-        new Json(User.class, this.path).save(this);
-    }
 
 }

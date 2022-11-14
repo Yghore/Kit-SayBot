@@ -1,12 +1,9 @@
 package fr.yghore.Commands;
 
-import fr.yghore.Models.Data;
 import fr.yghore.Models.User;
-import fr.yghore.Utils.Const;
 import fr.yghore.Utils.PaginationEmbed;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -17,7 +14,6 @@ import java.awt.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import static fr.yghore.Utils.Const.EMBED_MISSING_OPTION;
@@ -36,7 +32,7 @@ public class Warn extends ListenerAdapter
         {
 
             Member member = event.getOption("username").getAsMember();
-            User userData = Data.getDataUsers(member.getId());
+            User userData = User.load(member.getId());
 
 
 
@@ -101,8 +97,6 @@ public class Warn extends ListenerAdapter
                     LocalDateTime date = now.plus(durationWarn);
                     fr.yghore.Models.Warn warn = new fr.yghore.Models.Warn(id, date, typeWarn, desc, event.getMember().getIdLong());
                     userData.addWarn(warn);
-                    if(userData.getActiveWarn() == 2){ member.timeoutFor(1, TimeUnit.HOURS).queue();}
-                    if(userData.getActiveWarn() == 4){ member.timeoutFor(5, TimeUnit.HOURS).queue();}
                     EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Ajout de l'avertissement")
                             .setColor(Color.GREEN)
                             .setDescription("Vous avez ajouté l'avertissement suivant : ");
@@ -111,9 +105,15 @@ public class Warn extends ListenerAdapter
                         embedBuilder.addField(field);
                     }
 
+
+
                     event.replyEmbeds(
                         embedBuilder.build()
                     ).queue();
+
+                    if(userData.getActiveWarn() == 2){ member.timeoutFor(1, TimeUnit.HOURS).queue();}
+                    if(userData.getActiveWarn() == 4){ member.timeoutFor(5, TimeUnit.HOURS).queue();}
+
                     break;
                 case "remove":
                     long idRemove = event.getOption("id").getAsLong();
@@ -161,7 +161,7 @@ public class Warn extends ListenerAdapter
 
             }
 
-            Data.saveDataUsers(member.getId(), userData);
+            userData.save();
 
         }
     }

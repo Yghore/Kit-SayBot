@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 
-public class Warn extends Salvageable
+public class Warn implements Salvageable
 {
 
     public enum warnType{
