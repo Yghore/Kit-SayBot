@@ -1,14 +1,15 @@
 package fr.yghore.Models;
 
+import fr.yghore.Main;
+import fr.yghore.Utils.TimeFormat;
 import fr.yghore.dyglib.Data.Json;
 import fr.yghore.dyglib.Data.Salvageable;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.nio.file.Path;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
+
 
 public class User extends Json implements Salvageable
 {
@@ -16,17 +17,20 @@ public class User extends Json implements Salvageable
     private String memberId;
     private LocalDateTime created_date;
     private LocalDateTime updated_date;
-    private ArrayList<Warn> warns;
+
 
     public User(String memberId)
     {
         this.memberId = memberId;
         this.created_date = LocalDateTime.now();
         this.updated_date = LocalDateTime.now();
-        this.warns = new ArrayList<>();
     }
 
 
+    public Member getMember()
+    {
+        return Main.guild.getMemberById(this.memberId);
+    }
 
     public String getMemberId() {
         return memberId;
@@ -52,64 +56,23 @@ public class User extends Json implements Salvageable
         this.updated_date = updated_date;
     }
 
-    public ArrayList<Warn> getWarns() {
-        return warns;
-    }
 
-    public ArrayList<Warn> getOldestWarns(int i) {
-        if(i > this.warns.size()){i = 0;}
-        i = this.warns.size() - i;
-        ArrayList<Warn> warn = new ArrayList<>();
-        for (int j = this.warns.size() - 1; j >= i; j--) {
-            warn.add(this.warns.get(j));
-        }
-        return warn;
-    }
-
-    public ArrayList<Warn> getInactifWarns()
+    protected void update()
     {
-        return (ArrayList<Warn>) this.warns.stream().filter(warn -> !warn.isActive()).collect(Collectors.toList());
+        this.updated_date = LocalDateTime.now();
     }
 
-    public ArrayList<Warn> getActifWarns()
+
+
+    public EmbedBuilder toEmbed(EmbedBuilder embedBuilder)
     {
-        return (ArrayList<Warn>) this.warns.stream().filter(Warn::isActive).collect(Collectors.toList());
-    }
-
-
-
-    public void addWarn(Warn warn)
-    {
-        this.warns.add(warn);
-    }
-
-    public int getActiveWarn()
-    {
-        int active = 0;
-        for(Warn w : this.warns)
-        {
-            if(w.isActive())
-            {
-                active++;
-            }
-        }
-        return active;
-    }
-
-    public int getAllWarn()
-    {
-        return this.warns.size();
-    }
-
-    public static User load(String id)  {
-        try {
-            return (User) Json.load(Path.of("users", id + ".json").toString(), User.class);
-        }
-        catch(FileNotFoundException e)
-        {
-            return new User(id);
-        }
-
+        embedBuilder.setAuthor(this.getMember().getNickname());
+        embedBuilder.setThumbnail(this.getMember().getEffectiveAvatarUrl());
+        embedBuilder.addField("Crée le ", TimeFormat.LocalDateTimeToDiscordFormatted(this.created_date, TimeFormat.DiscordFormat.SHORT_DATE_TIME), true);
+        embedBuilder.addField("Dernière mise à jour le", TimeFormat.LocalDateTimeToDiscordFormatted(this.updated_date, TimeFormat.DiscordFormat.SHORT_DATE_TIME), true);
+        embedBuilder.addField("A rejoint le 🚪", TimeFormat.LocalDateTimeToDiscordFormatted(this.getMember().getTimeJoined().toLocalDateTime(), TimeFormat.DiscordFormat.SHORT_DATE_TIME), false);
+        embedBuilder.addBlankField(false);
+        return embedBuilder;
     }
 
 

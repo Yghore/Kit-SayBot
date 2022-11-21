@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInterac
 public abstract class UCommand
 {
 
-    public abstract void load(Guild guild);
+    public void load(Guild guild) {}
 
     public abstract void autoComplete(CommandAutoCompleteInteractionEvent event);
 

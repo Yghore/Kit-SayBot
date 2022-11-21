@@ -2,8 +2,7 @@ package fr.yghore.Models;
 
 import fr.yghore.dyglib.Configuration.Configurable;
 
-public class ConfigData extends Configurable
-{
+public class ConfigData implements Configurable {
 
     private static ConfigData config;
 

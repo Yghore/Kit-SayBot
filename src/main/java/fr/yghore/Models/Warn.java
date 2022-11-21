@@ -1,12 +1,10 @@
 package fr.yghore.Models;
 
-import fr.yghore.Utils.Const;
+import fr.yghore.Utils.TimeFormat;
 import fr.yghore.dyglib.Data.Salvageable;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
 
 public class Warn implements Salvageable
 {
@@ -17,7 +15,7 @@ public class Warn implements Salvageable
 
         public final String label;
 
-        private warnType(String label) {
+        warnType(String label) {
             this.label = label;
         }
 
@@ -30,7 +28,7 @@ public class Warn implements Salvageable
             return OTHER;
         }
 
-    };
+    }
 
     public enum warnFilter{
 
@@ -38,7 +36,7 @@ public class Warn implements Salvageable
 
         public final String label;
 
-        private warnFilter(String label) {
+        warnFilter(String label) {
             this.label = label;
         }
 
@@ -51,7 +49,7 @@ public class Warn implements Salvageable
             return null;
         }
 
-    };
+    }
 
     private long id;
 
@@ -147,8 +145,8 @@ public class Warn implements Salvageable
                 new MessageEmbed.Field("**⚠️ Avertissement** (``" + this.id + "``) __" + this.type.label + "__", "", false),
                 new MessageEmbed.Field("Modérateur : ", "<@" + this.moderator + ">", true),
                 new MessageEmbed.Field("Description", this.desc, false),
-                new MessageEmbed.Field("Création", "<t:" + this.dateCreated.atZone(ZoneId.systemDefault()).toEpochSecond() + ">", true),
-                new MessageEmbed.Field("Expiration",  "<t:" + this.dateExpiration.atZone(ZoneId.systemDefault()).toEpochSecond() + ":R> " + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
+                new MessageEmbed.Field("Création", TimeFormat.LocalDateTimeToDiscordFormatted(this.dateCreated, TimeFormat.DiscordFormat.SHORT_DATE_TIME), true),
+                new MessageEmbed.Field("Expiration",  TimeFormat.LocalDateTimeToDiscordFormatted( this.dateExpiration, TimeFormat.DiscordFormat.RELATIVE) + ((!this.isActive()) ? "\uD83D\uDD13" : "\uD83D\uDD12"), true),
                 null,
         };
     }

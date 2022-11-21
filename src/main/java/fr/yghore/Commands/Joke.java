@@ -1,7 +1,6 @@
 package fr.yghore.Commands;
 
 import fr.yghore.Main;
-import fr.yghore.dyglib.Logger;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -20,7 +19,7 @@ public class Joke extends ListenerAdapter {
             try {
                 joke = ((fr.yghore.Models.Joke) fr.yghore.Models.Joke.load("joke.json", fr.yghore.Models.Joke.class)).getRandomJoke();
             } catch (FileNotFoundException e) {
-                Main.LOGGER.sendPrint("Le fichier blague n'existe pas !");
+                Main.LOGGER.sendInfo("Le fichier blague n'existe pas !");
             }
 
             event.replyEmbeds(new EmbedBuilder().setAuthor("Blague :").setDescription(joke).setColor(Color.RED).build()).queue();

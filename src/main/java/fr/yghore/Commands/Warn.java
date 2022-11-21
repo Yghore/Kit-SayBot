@@ -1,6 +1,6 @@
 package fr.yghore.Commands;
 
-import fr.yghore.Models.User;
+import fr.yghore.Models.Profile;
 import fr.yghore.Utils.PaginationEmbed;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -32,7 +32,7 @@ public class Warn extends ListenerAdapter
         {
 
             Member member = event.getOption("username").getAsMember();
-            User userData = User.load(member.getId());
+            Profile userData = Profile.load(member.getId());
 
 
 
@@ -93,7 +93,7 @@ public class Warn extends ListenerAdapter
                     if(durationWarn == null || desc.equals("")){event.replyEmbeds(EMBED_MISSING_OPTION).setEphemeral(true).queue();return;}
 
                     LocalDateTime now = LocalDateTime.now();
-                    long id =  + Long.parseLong("" + (member.getIdLong() % 10000) + now.getMonthValue() + now.getDayOfMonth() + now.getYear() + userData.getAllWarn());
+                    long id = Long.parseLong("" + (member.getIdLong() % 10000) + now.getMonthValue() + now.getDayOfMonth() + now.getYear() + userData.getAllWarn());
                     LocalDateTime date = now.plus(durationWarn);
                     fr.yghore.Models.Warn warn = new fr.yghore.Models.Warn(id, date, typeWarn, desc, event.getMember().getIdLong());
                     userData.addWarn(warn);
