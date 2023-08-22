@@ -8,7 +8,6 @@ public class ConfigData implements Configurable {
 
     private String token;
 
-
     private long welcomeChannel;
     private long guildId;
 
@@ -16,6 +15,40 @@ public class ConfigData implements Configurable {
 
 
     private String dataFolder;
+
+    private String twitchToken;
+    private String twitchUsername;
+
+    private long announceTwitchChannel;
+
+
+
+    public ConfigData() {
+    }
+
+    public String getTwitchToken() {
+        return twitchToken;
+    }
+
+    public void setTwitchToken(String twitchToken) {
+        this.twitchToken = twitchToken;
+    }
+
+    public String getTwitchUsername() {
+        return twitchUsername;
+    }
+
+    public void setTwitchUsername(String twitchUsername) {
+        this.twitchUsername = twitchUsername;
+    }
+
+    public long getAnnounceTwitchChannel() {
+        return announceTwitchChannel;
+    }
+
+    public void setAnnounceTwitchChannel(long announceTwitchChannel) {
+        announceTwitchChannel = announceTwitchChannel;
+    }
 
     // dataFolder
 

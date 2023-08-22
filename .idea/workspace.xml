@@ -10,25 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9091850c-ae33-4876-b812-1c7d545f87e1" name="Changes" comment="Ajout du système de bannissement temporaire&#10;Changement dans la lib dyglib&#10;&#10;Mise à jour des salons pour le bot de bannissement (création du role et supression des permissions pour ce role)&#10;&#10;Ajout d'un fichier pour les moderateur (Historique de banissement)&#10;&#10;Ajout d'une méthode pour parse dans le format discord du temps&#10;&#10;Debanneur automatique (TimerTask, toutes les minutes)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Ban.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/ViewProfil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertBan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertViewProfil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Ban.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Bans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Moderator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/unBanThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/RoleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UpsertRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/TwitchEvents/LiveStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Joke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Joke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Commands/upsertCommand/UCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Bans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Bans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/ConfigData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/ConfigData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Warn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Models/Warn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/TimeFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/yghore/Utils/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +70,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: -1
+}</component>
   <component name="ProjectId" id="2FPa9yppdhXFuRReAFTf9Zr4aks" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -94,18 +90,21 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/yhgor/Documents/IUT_NANCY/QDev/tp7&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.43793103&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.43793103&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.yghore.Commands.upsertCommand" />
       <recent name="fr.yghore.Models" />
     </key>
   </component>
@@ -191,6 +190,10 @@
       <workItem from="1668974396088" duration="1068000" />
       <workItem from="1668991797431" duration="614000" />
       <workItem from="1669029829117" duration="362000" />
+      <workItem from="1691763630684" duration="8492000" />
+      <workItem from="1691782014466" duration="1073000" />
+      <workItem from="1691793501393" duration="317000" />
+      <workItem from="1692710155438" duration="2523000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit&#10;Ajout des packages :&#10;- data = Pour tout ce qui est stockage serializable et config)&#10;- commands = Pour la création des commandes discord&#10;- event = Pour les events Listener&#10;&#10;Création du main : (Connexion bot...)&#10;&#10;Création de la structure d'un warn (desc, date, etc...)&#10;Ajout dans la config.yml l'expiration d'un warn&#10;Création de la structure pour un utilisateur et pour la liste de tout les utilisateurs">
       <created>1664401332979</created>
@@ -297,27 +300,6 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="getter_data_system2" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -349,6 +331,27 @@
                 </option>
               </RecentGroup>
             </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="getter_data_system2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

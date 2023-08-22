@@ -20,5 +20,6 @@ public class Const
 
     public static final MessageEmbed EMBED_MISSING_PAGE = new EmbedBuilder().setAuthor("Erreur").setDescription("La page n'existe pas !").setColor(Color.RED).build();
 
+    public static final MessageEmbed EMBED_TWITCH_ANNOUNCE = new EmbedBuilder().setAuthor("TWITCH LIVE").setDescription("SolSkin est maintenant en live !").setColor(Color.green).build();
 
 }

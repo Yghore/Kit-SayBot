@@ -44,8 +44,12 @@ public class Bans extends Json implements Salvageable
 
                 Member member = Main.guild.getMemberById(ban.getUserId());
 
+
                 if(member != null)
                 {
+                    Profile profile = Profile.load("" + ban.getUserId());
+                    profile.setBanned(false);
+                    profile.save();
                     Role roleBanned = Main.guild.getRoles().stream()
                             .filter(role -> role.getName().equalsIgnoreCase("Banni")) // filter by role name
                             .findFirst()

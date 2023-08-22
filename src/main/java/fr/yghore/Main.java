@@ -1,11 +1,13 @@
 package fr.yghore;
 
-import fr.yghore.Commands.Ban;
-import fr.yghore.Commands.Joke;
-import fr.yghore.Commands.ViewProfil;
-import fr.yghore.Commands.Warn;
+import com.github.philippheuer.credentialmanager.domain.OAuth2Credential;
+import com.github.twitch4j.TwitchClient;
+import com.github.twitch4j.TwitchClientBuilder;
+import com.github.twitch4j.events.ChannelGoLiveEvent;
+import fr.yghore.Commands.*;
 import fr.yghore.Commands.upsertCommand.*;
 import fr.yghore.Models.ConfigData;
+import fr.yghore.TwitchEvents.LiveStart;
 import fr.yghore.Utils.unBanThread;
 import fr.yghore.dyglib.Configuration.Configuration;
 import fr.yghore.dyglib.Configuration.ConfigurationException;
@@ -31,8 +33,14 @@ public class Main {
     public static Guild guild;
 
     public static void main(String[] args) throws ConfigurationException {
-        Configuration config = new Configuration("config.yml", true, "KitSayBot");
-        ConfigData.setConfig((ConfigData) config.loadConfig(ConfigData.class));
+        Configuration config = new Configuration("config.yml", true, "SolSkin");
+        try {
+            ConfigData.setConfig((ConfigData) config.loadConfig(ConfigData.class));
+
+        }
+        catch (ConfigurationException e)
+        {LOGGER.sendError("Une erreur est survenu lors du chargement de la configuration !"); System.exit(1);}
+
         if(ConfigData.getConfig() == null){LOGGER.sendError("Une erreur est survenu lors du chargement de la configuration !"); System.exit(1);}
 
 
@@ -57,7 +65,8 @@ public class Main {
                             new Warn(),
                             new Joke(),
                             new Ban(),
-                            new ViewProfil()
+                            new ViewProfil(),
+                            new RoleManager()
                     )
                     .build().awaitReady();
 
@@ -67,7 +76,8 @@ public class Main {
                             new UpsertWarn(),
                             new UpsertJoke(),
                             new UpsertBan(),
-                            new UpsertViewProfil()
+                            new UpsertViewProfil(),
+                            new UpsertRole()
                     );
 
             loader.loader();
@@ -108,7 +118,11 @@ public class Main {
             }
 
             Main.LOGGER.sendInfo("Mise en place du débanneur automatique");
-            new Timer().schedule(new unBanThread(), 10 * 1000, 60 * 1000);
+            new Timer().schedule(new unBanThread(), 10 * 1000, 10 * 1000);
+
+
+            twitchListener();
+
 
 
 
@@ -130,4 +144,23 @@ public class Main {
             channel.getPermissionContainer().getManager().putRolePermissionOverride(roleBanned.getIdLong(), 0, Permission.ALL_PERMISSIONS).queue();
         }
     }
+
+    private static void twitchListener()
+    {
+        if(true)
+        {
+            TwitchClient twitchClient = TwitchClientBuilder.builder()
+                    .withDefaultAuthToken(new OAuth2Credential("twitch", ConfigData.getConfig().getTwitchToken()))
+                    .withEnableHelix(true)
+                    .build();
+
+            Main.LOGGER.sendInfo("Mise en place du listener de live");
+            twitchClient.getClientHelper().enableStreamEventListener(ConfigData.getConfig().getTwitchUsername());
+            twitchClient.getEventManager().onEvent(ChannelGoLiveEvent.class, LiveStart::new);
+            return;
+        }
+        Main.LOGGER.sendInfo("Désactivation du listener de live");
+
+    }
+
 }

@@ -2,3 +2,7 @@ token: '' # Le token du bot discord
 guildId: ''
 welcomeChannel: 0000
 usersFolder: 'users/'
+twitchToken: ''
+twitchUsername: ''
+announceTwitchChannel: 000
+activeAnnounceTwitch: "false"
