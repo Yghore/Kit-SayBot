@@ -16,6 +16,7 @@ public class UpsertBan extends UCommand {
                 .addOption(OptionType.STRING, "desc", "Description", true)
                 .addOption(OptionType.STRING, "date", "Date d'expiration (FORMAT : 00d00h00m00s | FOREVER)", false)
                 .setDefaultPermissions(DefaultMemberPermissions.DISABLED).queue();
+
     }
 
     @Override

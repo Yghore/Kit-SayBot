@@ -4,5 +4,6 @@ welcomeChannel: 0000
 usersFolder: 'users/'
 twitchToken: ''
 twitchUsername: ''
-announceTwitchChannel: 000
+announceTwitchChannel: 0000
 activeAnnounceTwitch: "false"
+announceRoleId: 0000

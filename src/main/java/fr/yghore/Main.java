@@ -102,8 +102,6 @@ public class Main {
                         .findFirst()
                         .orElse(null);
 
-                System.out.println(roleBanned);
-
 
             }
             else

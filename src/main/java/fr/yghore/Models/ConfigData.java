@@ -19,7 +19,9 @@ public class ConfigData implements Configurable {
     private String twitchToken;
     private String twitchUsername;
 
-    private long announceTwitchChannel;
+    private Long announceTwitchChannel;
+
+    private long announceRoleId;
 
 
 
@@ -34,6 +36,14 @@ public class ConfigData implements Configurable {
         this.twitchToken = twitchToken;
     }
 
+    public long getAnnounceRoleId() {
+        return announceRoleId;
+    }
+
+    public void setAnnounceRoleId(long announceRoleId) {
+        this.announceRoleId = announceRoleId;
+    }
+
     public String getTwitchUsername() {
         return twitchUsername;
     }
@@ -42,12 +52,12 @@ public class ConfigData implements Configurable {
         this.twitchUsername = twitchUsername;
     }
 
-    public long getAnnounceTwitchChannel() {
+    public Long getAnnounceTwitchChannel() {
         return announceTwitchChannel;
     }
 
-    public void setAnnounceTwitchChannel(long announceTwitchChannel) {
-        announceTwitchChannel = announceTwitchChannel;
+    public void setAnnounceTwitchChannel(Long announceTwitchChannel) {
+        this.announceTwitchChannel = announceTwitchChannel;
     }
 
     // dataFolder

@@ -46,9 +46,7 @@ public class RoleManager extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
-        System.out.println(event.getComponentId());
         List<String> roles = Main.guild.getRoles().stream().map(Role::getId).toList();
-        System.out.println(roles);
         if (roles.contains(event.getComponentId())) {
             Role role = Main.guild.getRoleById(event.getComponentId());
             if(role.getPermissions().stream().anyMatch(FORBIDDEN_PERMISSION_FOR_GIVEN_ROLE::contains))
