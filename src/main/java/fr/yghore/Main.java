@@ -45,11 +45,7 @@ public class Main {
 
 
         LOGGER = Logger.getLogger();
-
-        LOGGER.sendInfo("Token  : " + ConfigData.getConfig().getToken());
-        LOGGER.sendDebug("GuildId : " + ConfigData.getConfig().getGuildId());
         LOGGER.sendInfo("Initialisation....");
-
 
 
 
@@ -92,7 +88,7 @@ public class Main {
 
                 Main.guild.createRole()
                         .setColor(0x0e0e0e)
-                        .setMentionable(false)
+                        .setMentionable(Boolean.FALSE)
                         .setName("Banni")
                         .setPermissions(0L)
                         .queue();
@@ -145,11 +141,12 @@ public class Main {
 
     private static void twitchListener()
     {
-        if(true)
+        if(ConfigData.getConfig().isActiveAnnounceTwitch())
         {
             TwitchClient twitchClient = TwitchClientBuilder.builder()
-                    .withDefaultAuthToken(new OAuth2Credential("twitch", ConfigData.getConfig().getTwitchToken()))
-                    .withEnableHelix(true)
+                    .withClientId(ConfigData.getConfig().getTwitchClientId())
+                    .withClientSecret(ConfigData.getConfig().getTwitchToken())
+                    .withEnableHelix(Boolean.TRUE)
                     .build();
 
             Main.LOGGER.sendInfo("Mise en place du listener de live");

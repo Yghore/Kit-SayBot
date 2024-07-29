@@ -18,14 +18,20 @@ public class ConfigData implements Configurable {
 
     private String twitchToken;
     private String twitchUsername;
+    private String twitchClientId;
 
     private Long announceTwitchChannel;
+    private boolean activeAnnounceTwitch;
 
     private long announceRoleId;
 
 
 
     public ConfigData() {
+    }
+
+    public void setTwitchClientId(String twitchClientId) {
+        this.twitchClientId = twitchClientId;
     }
 
     public String getTwitchToken() {
@@ -120,5 +126,18 @@ public class ConfigData implements Configurable {
 
     public String getUsersFolder() {
         return this.usersFolder;
+    }
+
+    public String getTwitchClientId() {
+        return twitchClientId;
+    }
+
+
+    public boolean isActiveAnnounceTwitch() {
+        return activeAnnounceTwitch;
+    }
+
+    public void setActiveAnnounceTwitch(boolean activeAnnounceTwitch) {
+        this.activeAnnounceTwitch = activeAnnounceTwitch;
     }
 }

@@ -2,10 +2,8 @@ package fr.yghore.Commands;
 
 import fr.yghore.Main;
 import fr.yghore.Models.Bans;
-import fr.yghore.Models.ConfigData;
 import fr.yghore.Models.Moderator;
 import fr.yghore.Models.Profile;
-import fr.yghore.Utils.Const;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;

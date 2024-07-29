@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInterac
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 public class Loader extends ArrayList<UCommand>
 {

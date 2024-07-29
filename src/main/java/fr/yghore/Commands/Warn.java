@@ -1,7 +1,8 @@
 package fr.yghore.Commands;
 
-import fr.yghore.Models.Profile;
+import fr.yghore.Utils.Const;
 import fr.yghore.Utils.PaginationEmbed;
+import fr.yghore.Models.Profile;
 import fr.yghore.Utils.TimeFormat;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
@@ -15,9 +16,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-import static fr.yghore.Utils.Const.EMBED_MISSING_OPTION;
-import static fr.yghore.Utils.Const.EMBED_NOT_FOUND;
 
 
 public class Warn extends ListenerAdapter
@@ -41,7 +39,7 @@ public class Warn extends ListenerAdapter
 //                            return;
 //            }
 
-            if(userData == null) {event.replyEmbeds(EMBED_NOT_FOUND).queue(); return;}
+            if(userData == null) {event.replyEmbeds(Const.EMBED_NOT_FOUND).queue(); return;}
             switch (event.getSubcommandName())
             {
                 case "view":
@@ -90,7 +88,7 @@ public class Warn extends ListenerAdapter
 
                     fr.yghore.Models.Warn.warnType typeWarn = fr.yghore.Models.Warn.warnType.type(type);
 
-                    if(durationWarn == null || desc.equals("")){event.replyEmbeds(EMBED_MISSING_OPTION).setEphemeral(true).queue();return;}
+                    if(durationWarn == null || desc.equals("")){event.replyEmbeds(Const.EMBED_MISSING_OPTION).setEphemeral(true).queue();return;}
 
                     LocalDateTime now = LocalDateTime.now();
                     long id = Long.parseLong("" + (member.getIdLong() % 10000) + now.getMonthValue() + now.getDayOfMonth() + now.getYear() + userData.getAllWarn());
@@ -118,7 +116,7 @@ public class Warn extends ListenerAdapter
                 case "remove":
                     long idRemove = event.getOption("id").getAsLong();
                     int index = userData.getWarns().indexOf(new fr.yghore.Models.Warn(idRemove));
-                    if(index == -1){ event.replyEmbeds(EMBED_NOT_FOUND).queue();return;}
+                    if(index == -1){ event.replyEmbeds(Const.EMBED_NOT_FOUND).queue();return;}
                     warn = userData.getWarns().get(index);
                     userData.getWarns().remove(new fr.yghore.Models.Warn(idRemove));
                     embedBuilder = new EmbedBuilder()
@@ -139,7 +137,7 @@ public class Warn extends ListenerAdapter
                     String expiration = event.getOption("expiration").getAsString();
                     type = event.getOption("type").getAsString();
                     index = userData.getWarns().indexOf(new fr.yghore.Models.Warn(idModify));
-                    if(index == -1){ event.replyEmbeds(EMBED_NOT_FOUND).queue();return;}
+                    if(index == -1){ event.replyEmbeds(Const.EMBED_NOT_FOUND).queue();return;}
 
                     warn = userData.getWarns().get(index);
                     if(type.equalsIgnoreCase("add")) {warn.setDateExpiration(warn.getDateExpiration().plus(TimeFormat.parse(expiration)));}

@@ -1,7 +1,5 @@
 package fr.yghore.TwitchEvents;
 
-import com.github.philippheuer.events4j.core.domain.Event;
-import com.github.twitch4j.TwitchClient;
 import com.github.twitch4j.events.ChannelGoLiveEvent;
 import fr.yghore.Main;
 import fr.yghore.Models.ConfigData;
